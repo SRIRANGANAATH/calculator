@@ -1,0 +1,35 @@
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      margin: 10px auto;
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 2px 5px 1px rgba(0, 0, 0, 0.1);
+    }
+    input, button {
+      padding: 8px;
+      margin: 5px;
+      width: 90%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #0a73e2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    
+  
