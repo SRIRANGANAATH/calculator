@@ -1,0 +1,149 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(bisque);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 20px ;
+}
+ 
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.box{
+    height: auto;
+    width : 500px; 
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+
+.head{
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    color:white ;
+    
+}
+
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    margin: 10px;
+    padding: 10px 12px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+#taskButton {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 8px;
+    background: #005eff;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#taskButton:hover {
+    background: #0041b9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 94, 255, 0.3);
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    max-height: 300px;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    padding: 10px;
+    margin : 30px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+
+li input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 12px;
+}
+
+
+li span {
+    flex: 1;
+    font-size: 16px;
+    text-align: left;
+}
+
+.completed span {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #ff5c5c;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    transform: scale(1.3);
+    color: #ff1e1e;
+}
+
+#taskList li {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+
