@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="final2.css">
+</head>
+<body>
+        <h1 class="header">
+    Welcome to the Quiz App
+    </h1>
+   
+  <div id="reg" style="display: block;">
+    <h1>Registration Form</h1>
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="number" id="age" placeholder="Age" required />
+    <button type="submit"id="register-btn" onclick="register(event)">Register</button>
+    <p id="error"></p>
+    </div>
+
+    <div id="quiz-container" style="display: none;"></div>
+
+    <script>
+       function register(event) {
+  event.preventDefault();
+  userinfo = {};
+  var username = document.getElementById("name").value.trim();
+  var email = document.getElementById("email").value.trim();
+  var age = parseInt(document.getElementById("age").value);
+  var errorMsg = document.getElementById("error");
+  if (!username || !email || !age) {
+    errorMsg.textContent = "⚠️ All fields are required.";
+    return;
+  }
+
+  if (isNaN(age) || age <= 0 || age > 100) {
+    errorMsg.textContent = "⚠️ Please enter a valid number for age.";
+    return;
+  }
+  if (age <= 12) {
+    errorMsg.textContent = "⚠️ You must be at least 12 years old.";
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errorMsg.textContent = "⚠️ Please enter a valid email address.";
+    return;
+  }
+   userinfo = {username,email,age};
+  // localStorage.setItem("username", username);
+  // localStorage.setItem("email", email);
+  // localStorage.setItem("age", age);
+
+  // window.location.href = 'quiz.html';
+
+  display();
+  showQuestions();
+}
+
+function display()
+{
+    let a = document.getElementById("reg");
+    a.style.display="none";
+}
+const questions = [
+  { q: "How much time does light take to reach earth?", choices: ["8 minutes 40 seconds", "8 minutes 10 seconds", "7 minutes 20 seconds", "8 minutes 20 seconds"], answer: "4" },
+  {
+    q: "Capital of France?",
+    choices: ["Berlin", "Madrid", "Paris", "Rome"],
+    answer: "Paris",
+  },
+  {
+    q: "Largest planet?",
+    choices: ["Earth", "Jupiter", "Mars", "Saturn"],
+    answer: "Jupiter",
+  },
+  {
+    q: "Symbol for water?",
+    choices: ["H2O", "CO2", "O2", "NaCl"],
+    answer: "H2O",
+  },
+  {
+    q: "Who wrote 'Romeo and Juliet'?",
+    choices: ["Dickens", "Twain", "Shakespeare", "Austen"],
+    answer: "Shakespeare",
+  },
+  {
+    q: "What is the boiling point of water?",
+    choices: ["90°C", "100°C", "110°C", "120°C"],
+    answer: "100°C",
+  },
+  {
+    q: "What is the smallest prime number?",
+    choices: ["0", "1", "2", "3"],
+    answer: "2",
+  },
+  {
+    q: "What is the chemical symbol for gold?",
+    choices: ["Au", "Ag", "Fe", "Pb"],
+    answer: "Au",
+  },
+  {
+    q: "What is the speed of light?",
+    choices: ["3x10^8 m/s", "1.5x10^8 m/s", "3x10^6 m/s", "1.5x10^6 m/s"],
+    answer: "3x10^8 m/s",
+  },
+];
+
+
+
+const selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+function showQuestions() {
+  const quizContainer = document.getElementById("quiz-container");
+  //quizContainer.innerText = "";
+  quizContainer.style.display = "block";
+  
+  selectedQuestions.forEach((question, index) => {
+    const div = document.createElement("div");
+    
+    div.style.height = "auto";
+    div.style.width = "100%";
+    
+    div.style.marginBottom = "20px";
+    div.style.padding = "10px";
+    div.style.border = "1px solid #ccc";
+    div.style.borderRadius = "5px";
+    div.style.backgroundColor = "lightblue";
+    div.style.fontFamily = "Arial, sans-serif";
+    div.style.color = "#333";
+    div.style.fontSize = "16px";
+    // div.style.border= "2px solid black";
+    // div.style.borderSpacing="2px";
+    // div.style.borderColor="black";
+    // questions.style.color = "lightblue";
+    // div.style.outlineOffset="10px";
+    // div.style.outline="2px dotted violet"
+    
+    const qText = document.createElement("h3");
+    qText.textContent = `${index + 1}. ${question.q}`;
+    div.appendChild(qText);
+    // qText.style.color="blue";
+    
+    question.choices.forEach((choice) => {
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = `q${index}`;
+      input.value = choice;
+      const br= document.createElement("br");
+      div.appendChild(br);
+      div.appendChild(input);
+      div.appendChild(document.createTextNode(" " + choice));
+    });
+    quizContainer.appendChild(div);
+
+    quizContainer.appendChild(document.createElement("hr"));
+    
+  });
+
+  const submitBtn = document.createElement("button");
+  submitBtn.textContent = "Submit Answers";
+  submitBtn.onclick = calculateScore;
+  quizContainer.appendChild(submitBtn);
+  submitBtn.style.padding = "10px 20px";
+  submitBtn.style.fontSize = "16px";
+  submitBtn.style.cursor = "pointer";
+  submitBtn.style.backgroundColor = "#4CAF50";
+  submitBtn.style.color = "white";
+  submitBtn.style.border = "none";
+  submitBtn.style.borderRadius = "10px";
+  submitBtn.onmouseover = function () {
+    submitBtn.style.backgroundColor = "#3abc40ff";
+    submitBtn.style.transform = "scale(1.01)";
+    submitBtn.style.transition = "transform 0.2s";
+  };
+  submitBtn.onmouseout = function () {
+    submitBtn.style.backgroundColor = "#4CAF50";
+    submitBtn.style.transform = "scale(0.98)";
+    submitBtn.style.transition = "transform 0.2s";
+  };
+}
+
+function showJSON() {
+  // const user = document.getElementById("name");
+  // const username = user.value.trim();
+  let quiz = {
+    name: userinfo.username,
+    age:  userinfo.age,
+    email: userinfo.email,
+    score: userquizinfo.score,
+    grade: userquizinfo.grade
+  };
+
+  let json = JSON.stringify(quiz,null,2);
+  console.log(json);
+  document.getElementById("jsonoutput").innerText = json;
+}
+let userquizinfo={};
+function calculateScore() {
+  let score = 0;
+
+  selectedQuestions.forEach((question, index) => {
+    const selected = document.querySelector(`input[name="q${index}"]:checked`);
+    if (selected && selected.value === question.answer) {
+      score++;
+    }
+  });
+
+  const percent = (score / selectedQuestions.length) * 100;
+  let grade = "";
+
+  if (percent === 100) grade = "A+ (Excellent)";
+  else if (percent >= 80) grade = "A (Very Good)";
+  else if (percent >= 60) grade = "B (Good)";
+  else if (percent >= 40) grade = "C (Average)";
+  else grade = "F (Fail)";
+  userquizinfo={grade,score};
+
+  const quizContainer = document.getElementById("quiz-container");
+
+  quizContainer.innerHTML = `
+  <div>
+  <h2>🎯 Quiz Over!</h2>
+  <p>Your final score: <strong>${score}</strong> / <strong>${selectedQuestions.length}</strong></p>
+    <p>Grade: <strong>${grade}</strong></p>
+    <button id="go-home" onclick="window.location.reload()">Go to Home</button>
+    <button id="jsonbtn" onclick="showJSON()">Show JSON</button>
+    <pre id="jsonoutput" ></pre>
+    </div>
+    
+    <style>
+    div {
+      margin-top: 5px;
+      height: auto;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #e8f5e9;
+      font-family: Arial, sans-serif;
+      color: #333;
+      font-size: 18px;
+      line-height: 1.5;
+      }
+      #try-again, #go-home {
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #47ab4bff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        }
+        #try-again:hover, #go-home:hover {
+          background: green;
+          transform: scale(1.01);
+          }
+          </style>
+          `;
+  // var jsonbtn = document.createElement("button");
+  // quizContainer.appendChild(jsonbtn);
+
+  // jsonbtn.textContent = "JSON";
+  // jsonbtn.onclick = showJSON;
+}
+</script>
+</body>
+</html>
