@@ -1,0 +1,114 @@
+*
+{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+/* body{
+    background-color:antiquewhite;
+} */
+
+
+.header{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    display: flexbox;
+    color: rgb(41, 124, 41);
+    height: 20%;
+    width: auto;
+    background-color: rgb(48, 201, 48);
+}
+
+/* li{
+    font-size:20px;
+} */
+
+li button{
+   background-color: transparent;
+   border: none;
+   font-size:25px;
+   /* text-align: center; */
+   cursor: pointer;
+   /* padding: 10px 20px; */
+}
+
+li button:hover{
+  background-color: rgb(189, 182, 182);
+  transition: ease-in-out;
+}
+
+li p{
+    margin: 10px;
+    color: white;
+
+}
+
+/* drinks */
+
+#vend .vending{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    /* margin: 10px; */
+}
+
+#vend .border{
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+#vend p{
+    text-align: center;
+    font-size:larger;
+}
+
+
+/* salad */
+
+#menusalad .salad{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    /* margin: 10px; */
+}
+
+#menusalad .border{
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+#menusalad p{
+    text-align: center;
+    font-size:larger;
+}
+
+
+/* chips */
+
+#menuchips .chips{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    /* margin: 10px; */
+}
+
+#menuchips .border{
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+#menuchips p{
+    text-align: center;
+    font-size:larger;
+}
+/* .body{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
