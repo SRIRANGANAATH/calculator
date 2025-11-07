@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Calculator</title>
+  <script src="temp.js" defer></script> 
+</head>
+<body>
+  <h1>Age Calculator</h1>
+  
+  <label>Enter birth Date</label><br>
+  <label for="birthmonth">Month:</label>
+  <select name="bmonth" id="birthmonth" title="month"></select>
+
+  <label for="birthday">Day:</label>
+  <select name="bday" id="birthday" title="day"></select>
+
+  <label for="birthyear">year:</label>
+  <select name="byear" id="birthyear" title="year"></select><br>
+
+  <label>Age at Date</label><br>
+  <label for="currentmonth">Month:</label>
+  <select name="cmonth" id="currentmonth" title="cmonth"></select>
+
+  <label for="currentday">Day:</label>
+  <select name="cday" id="currentday" title="cday"></select>
+
+  <label for="currentyear">year:</label>
+  <select name="cyear" id="currentyear" title="cyear"></select><br><br>
+
+  <button id="calculateDiff">Calculate Date Difference</button>
+   <p id="dateDiffResult"></p>
+</body>
+</html>
