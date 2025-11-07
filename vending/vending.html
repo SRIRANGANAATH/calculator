@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vending Machine</title>
+    <link rel="stylesheet" href="vending.css">
+    <script src="vending.js"></script>
+</head>
+<body>
+    <div class="header">
+    <h1 style="font-size: 40px;">Menu</h1>
+    <li style="display: flex;justify-content: center; margin-top: 20px;">
+       <button onclick="drinks()"><p>Drinks</p></button>
+       <button onclick="salads()"><p>Salads</p></button>
+       <button onclick="chips()"><p>Chips</p></button>
+    </li></div>
+
+
+    <!-- drinks -->
+     <!-- <div class="body"> -->
+    <div id="vend">
+        <div class="vending">
+        <div class="border">
+            <button onclick="price('sprite',2.99)"><img src="sprite.png" alt="sprite" title="sprite" height="250px" width="auto"></button>
+            <p>$ 2.99</p>
+        </div>
+        <div class="border">
+            <button onclick="price('fanta',2.99)"><img src="fanta.png" alt="fanta" title="fanta" height="250px" width="auto"></button>
+            <p>$ 2.99</p>
+        </div>
+        <div class="border">
+            <button onclick="price('coke',2.99)"><img src="coke.png" alt="coke" title="coke" height="250px" width="auto"></button>
+            <p>$ 2.99</p>
+        </div>
+        </div>
+    </div>
+
+    <!-- salad -->
+    <div id="menusalad" style="display: none;">
+      <div class="salad">
+        <div class="border">
+            <button onclick="price('Greek salad',9.99)"><img src="salad_1.png" height="250px" width="auto"></button>
+            <p>$ 9.99</p>
+        </div>
+        <div class="border">
+            <button onclick="price('Ceasar salad',9.99)"><img src="salad_2.png" height="250px" width="auto"></button>
+            <p>$ 9.99</p>
+        </div>
+        <div class="border">
+            <button onclick="price('veggie salad',9.99)"><img src="salad_3.jpg" height="250px" width="auto"></button>
+            <p>$ 9.99</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- chips -->
+    <div id="menuchips" style="display: none;">
+      <div class="chips">
+        <div class="border">
+            <button onclick="price('bingo',4.99)"><img src="chips_1.png" height="250px" width="auto"></button>
+            <p>$ 4.99</p>
+        </div>
+        <div class="border">
+            <button onclick="price('cheese lays',4.99)"><img src="chips_2.jpg" height="250px" width="auto"></button>
+            <p>$ 4.99</p>
+        </div>
+        <div class="border">
+            <button onclick="price('tomato lays',4.99)"><img src="chips_3.png" height="250px" width="auto"></button>
+            <p>$ 4.99</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- CART SECTION -->
+<div id="cart" style="margin-top: 30px; display:none;">
+    <h2>Cart Items</h2>
+    <ul id="cart-list"></ul>
+    <h3>Total: $ <span id="cart-total">0.00</span></h3>
+    <button onclick="checkout()">Proceed to Payment 💳</button>
+    <!-- <button onclick="showJson()">JSON</button> -->
+    <!-- <pre id="JS"></pre> -->
+</div>
+<!-- </div> -->
+
+</body>
+</html>
