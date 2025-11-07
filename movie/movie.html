@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Ticket Booking</title>
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .box {
+      margin: auto;
+      border-collapse: separate;
+      border-spacing: 15px;
+    }
+
+    td {
+      padding: 0;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      border: none;
+      background-color: rgb(192, 187, 187);
+      cursor: pointer
+    }
+
+    #movielist{
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    #movielist button{
+      border: none;
+      cursor: pointer;
+      height: 500px;
+      width: 350px;
+    }
+ 
+    #movielist img{
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+      transition: transform 0.2s;
+    }
+
+    #movielist img:hover{
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Online Ticket Booking</h1>
+  <div id="movielist">
+  <button onclick="showweapons()"><img src="./weapons-poster.avif" width="350" height="500" alt="minecraft"></button>
+  <button onclick="showMine()"><img src="./a-minecraft-movie-2025-05 (1).jpg" width="350" height="500" alt="weapons"></button>
+  <button onclick="showdemon()"><img src="./w2KyCngXW106bSyrfauoe1G4GuC.webp" width="350" height="500" alt="Demon_Slayer_infinityCastle"></button>
+  </div>
+  <!-- <select id="movie" name="booking" title="movies" onclick="MovieSeats()">
+    <option value="Weapons">Weapons</option>
+    <option value="JanaNayagan">Jana Nayagan</option>
+    <option value="Demon_Slayer_infinityCastle">Demon Slayer Infinity Castle</option>
+  </select> -->
+
+  <br><br>
+  <!-- weapons  -->
+  <div id="weapons" style="display: none;">
+  <h3>Weapons — Screen 1</h3>
+  <table class="box">
+    <tr>
+      <td><button onclick="change(this,'weapons',300)"></button></td>
+      <td><button onclick="change(this,'weapons',300)"></button></td>
+      <td><button onclick="change(this,'weapons',300)"></button></td>
+      <td><button onclick="change(this,'weapons',300)"></button></td>
+      <td><button onclick="change(this,'weapons',300)"></button></td>
+      <td><button onclick="change(this,'weapons',300)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'weapons',220)"></button></td>
+      <td><button onclick="change(this,'weapons',220)"></button></td>
+      <td><button onclick="change(this,'weapons',220)"></button></td>
+      <td><button onclick="change(this,'weapons',220)"></button></td>
+      <td><button onclick="change(this,'weapons',220)"></button></td>
+      <td><button onclick="change(this,'weapons',220)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'weapons',180)"></button></td>
+      <td><button onclick="change(this,'weapons',180)"></button></td>
+      <td><button onclick="change(this,'weapons',180)"></button></td>
+      <td><button onclick="change(this,'weapons',180)"></button></td>
+      <td><button onclick="change(this,'weapons',180)"></button></td>
+      <td><button onclick="change(this,'weapons',180)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'weapons',120)"></button></td>
+      <td><button onclick="change(this,'weapons',120)"></button></td>
+      <td><button onclick="change(this,'weapons',120)"></button></td>
+      <td><button onclick="change(this,'weapons',120)"></button></td>
+      <td><button onclick="change(this,'weapons',120)"></button></td>
+      <td><button onclick="change(this,'weapons',120)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'weapons',70)"></button></td>
+      <td><button onclick="change(this,'weapons',70)"></button></td>
+      <td><button onclick="change(this,'weapons',70)"></button></td>
+      <td><button onclick="change(this,'weapons',70)"></button></td>
+      <td><button onclick="change(this,'weapons',70)"></button></td>
+      <td><button onclick="change(this,'weapons',70)"></button></td>
+    </tr>
+  </table>
+  <p class="seats" style="font-size: 20px;">Total seats: </p>
+  <p class="price" style="font-size: 20px;">Total Price: </p>
+  <button class="book" onclick="bookNow('weapons')" style="width: auto;padding: 10px; font-size: medium; color: white; background-color: rgb(235, 78, 98);;">book now</button>
+  </div>
+  <!-- minecraft -->
+  <div id="minecraft" style="display: none;">
+  <h3>MineCraft — Screen 2</h3>
+  <table class="box">
+    <tr>
+      <td><button onclick="change(this,'minecraft',300)"></button></td>
+      <td><button onclick="change(this,'minecraft',300)"></button></td>
+      <td><button onclick="change(this,'minecraft',300)"></button></td>
+      <td><button onclick="change(this,'minecraft',300)"></button></td>
+      <td><button onclick="change(this,'minecraft',300)"></button></td>
+      <td><button onclick="change(this,'minecraft',300)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'minecraft',250)"></button></td>
+      <td><button onclick="change(this,'minecraft',250)"></button></td>
+      <td><button onclick="change(this,'minecraft',250)"></button></td>
+      <td><button onclick="change(this,'minecraft',250)"></button></td>
+      <td><button onclick="change(this,'minecraft',250)"></button></td>
+      <td><button onclick="change(this,'minecraft',250)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'minecraft',200)"></button></td>
+      <td><button onclick="change(this,'minecraft',200)"></button></td>
+      <td><button onclick="change(this,'minecraft',200)"></button></td>
+      <td><button onclick="change(this,'minecraft',200)"></button></td>
+      <td><button onclick="change(this,'minecraft',200)"></button></td>
+      <td><button onclick="change(this,'minecraft',200)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'minecraft',160)"></button></td>
+      <td><button onclick="change(this,'minecraft',160)"></button></td>
+      <td><button onclick="change(this,'minecraft',160)"></button></td>
+      <td><button onclick="change(this,'minecraft',160)"></button></td>
+      <td><button onclick="change(this,'minecraft',160)"></button></td>
+      <td><button onclick="change(this,'minecraft',160)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'minecraft',100)"></button></td>
+      <td><button onclick="change(this,'minecraft',100)"></button></td>
+      <td><button onclick="change(this,'minecraft',100)"></button></td>
+      <td><button onclick="change(this,'minecraft',100)"></button></td>
+      <td><button onclick="change(this,'minecraft',100)"></button></td>
+      <td><button onclick="change(this,'minecraft',100)"></button></td>
+    </tr>
+  </table>
+  <p class="seats" style="font-size: 20px;">Total seats: </p>
+  <p class="price" style="font-size: 20px;">Total Price: </p>
+  <button class="book" onclick="bookNow('minecraft')" style="width: auto;padding: 10px; font-size: medium; color: white; background-color: rgb(235, 78, 98);;">book now</button>
+  </div>
+<!-- Demon_Slayer_infinityCastle -->
+  <div id="demon" style="display: none;">
+  <h3>Demon Slayer — Screen 3</h3> 
+  <table class="box">
+    <tr>
+      <td><button onclick="change(this,'demon',300)"></button></td>
+      <td><button onclick="change(this,'demon',300)"></button></td>
+      <td><button onclick="change(this,'demon',300)"></button></td>
+      <td><button onclick="change(this,'demon',300)"></button></td>
+      <td><button onclick="change(this,'demon',300)"></button></td>
+      <td><button onclick="change(this,'demon',300)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'demon',220)"></button></td>
+      <td><button onclick="change(this,'demon',220)"></button></td>
+      <td><button onclick="change(this,'demon',220)"></button></td>
+      <td><button onclick="change(this,'demon',220)"></button></td>
+      <td><button onclick="change(this,'demon',220)"></button></td>
+      <td><button onclick="change(this,'demon',220)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'demon',180)"></button></td>
+      <td><button onclick="change(this,'demon',180)"></button></td>
+      <td><button onclick="change(this,'demon',180)"></button></td>
+      <td><button onclick="change(this,'demon',180)"></button></td>
+      <td><button onclick="change(this,'demon',180)"></button></td>
+      <td><button onclick="change(this,'demon',180)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'demon',100)"></button></td>
+      <td><button onclick="change(this,'demon',100)"></button></td>
+      <td><button onclick="change(this,'demon',100)"></button></td>
+      <td><button onclick="change(this,'demon',100)"></button></td>
+      <td><button onclick="change(this,'demon',100)"></button></td>
+      <td><button onclick="change(this,'demon',100)"></button></td>
+    </tr>
+    <tr>
+      <td><button onclick="change(this,'demon',70)"></button></td>
+      <td><button onclick="change(this,'demon',70)"></button></td>
+      <td><button onclick="change(this,'demon',70)"></button></td>
+      <td><button onclick="change(this,'demon',70)"></button></td>
+      <td><button onclick="change(this,'demon',70)"></button></td>
+      <td><button onclick="change(this,'demon',70)"></button></td>
+    </tr>
+  </table>
+  <p class="seats" style="font-size: 20px;">Total seats: </p>
+  <p class="price" style="font-size: 20px;">Total Price: </p>
+  <button class="book" onclick="bookNow('demon')" style="width: auto;padding: 10px; font-size: medium; color: white; background-color: rgb(235, 78, 98);;">book now</button>
+  </div>
+
+ 
+  <script>
+
+   function showweapons() {
+    let weapons = document.getElementById("weapons");        
+    let mine = document.getElementById("minecraft"); 
+    let demon = document.getElementById("demon");
+    let list = document.getElementById("movielist")
+    if (weapons.style.display === "none") {
+        weapons.style.display = "block";
+        mine.style.display = "none";
+        demon.style.display = "none";
+        list.style.display = "none"
+    }
+}
+
+function showMine() {
+    let weapons = document.getElementById("weapons");        
+    let mine = document.getElementById("minecraft");
+    let demon = document.getElementById("demon");
+   let list = document.getElementById("movielist")
+    if (mine.style.display === "none") {
+        mine.style.display = "block";
+        weapons.style.display = "none";
+        demon.style.display = "none";
+        list.style.display = "none"
+    }
+}
+
+function showdemon()
+{
+    let weapons = document.getElementById("weapons");        
+    let mine = document.getElementById("minecraft");
+    let demon = document.getElementById("demon");
+    let list = document.getElementById("movielist")
+    if (demon.style.display === "none") {
+        demon.style.display = "block";
+        mine.style.display = "none";
+        weapons.style.display = "none";
+        list.style.display = "none"
+    }
+}
+    
+    let screen={
+       weapons: { seats: 0, price: 0 },
+       minecraft: { seats: 0, price: 0 },
+       demon: { seats: 0, price: 0 }
+    };
+    // let seats_occupied=0;
+    // let totalprice = 0;
+
+    function change(btn,screenid,ticketprice) {
+      let selected = btn.style.backgroundColor === "green";
+      if(selected){
+         btn.style.backgroundColor = "rgb(192, 187, 187)";
+         screen[screenid].seats -= 1;
+         screen[screenid].price -= ticketprice;
+      }else{
+         btn.style.backgroundColor = "green";
+         screen[screenid].seats += 1;
+         screen[screenid].price += ticketprice;
+        // seats_occupied+=1;
+        // totalprice+=ticketprice;
+      }
+      calc_price(screenid);
+    }
+
+    function calc_price(screenid)
+    {
+
+      const container = document.querySelector(`#${screenid}`);
+      container.querySelector(".seats").innerHTML = `Total seats: ${screen[screenid].seats}`;
+      container.querySelector(".price").innerHTML = `Total Price: ${screen[screenid].price}$`;
+      // let price = document.getElementsByClassName("price");
+      // let seats = document.getElementsByClassName("seats");
+      // seats.innerHTML = `Total seats: ${seats_occupied}`;
+      // price.innerHTML = `Total Price: ${totalprice}$`;
+    }
+  
+    function bookNow(screenid){
+      let payment = prompt("Choose payment method: Cash / UPI / Card");
+      if (!['cash', 'upi', 'card'].includes(payment)) {
+        alert("Invalid payment option. Please try again.");
+        // return;
+      }
+      let finaltotal = screen[screenid].price;
+      let coupon = prompt("Enter coupon code if you have one (or press Cancel)");
+      if (coupon === "7585") {
+        let discount = finaltotal * 0.3;
+        finaltotal -= discount;
+        alert(`Coupon applied! You saved $${discount.toFixed(2)}.`);
+      } else{
+        alert("Invalid coupon code!");
+      }
+
+      let confirmPay = confirm(`You chose ${payment}.\nYour final total is ${finaltotal.toFixed(2)}.\nProceed with payment?`);
+      if (confirmPay) {
+        alert("Payment successful! Thank you for your purchase.");
+      resetShow(screenid);
+      } else {
+        alert("Payment cancelled.");
+      }
+    }
+
+    function resetShow(screenid) {
+      screen[screenid].seats = 0;
+      screen[screenid].price = 0;
+
+      const container = document.querySelector(`#${screenid}`);
+      container.querySelector(".price").innerHTML = `Total Price : `;
+      container.querySelector(".seats").innerHTML = `Total seats : `;
+      container.querySelectorAll("button").forEach(btn => {
+    if (btn.style.backgroundColor === "green") {
+      btn.style.backgroundColor = "red"; // mark previously selected
+    } else {
+      btn.style.backgroundColor = "rgb(192, 187, 187)"; // reset others
+    }
+     });
+    //  const book = document.querySelector(".book");
+    //  book.style.backgroundColor = " rgb(235, 78, 98)";
+    //  book.style.color = "white";
+    //  book.style.padding = "10px";
+    //  book.style.width = "auto";
+    }
+
+  </script>
+
+</body>
+</html>
+
+
+
